@@ -3,6 +3,15 @@ import pandas as pd
 import streamlit as st
 
 from react_table import selectable_data_table
+import extra_streamlit_components as stx
+
+
+@st.cache(allow_output_mutation=True)
+def get_manager():
+    return stx.CookieManager()
+
+
+cookie_manager = get_manager()
 
 
 data = [
@@ -26,4 +35,8 @@ if rows:
     st.write("You have selected", rows)
 
 st.write("here is the end")
+
+st.subheader("All Cookies:")
+cookies = cookie_manager.get_all()
+st.write(cookies)
 

@@ -87,7 +87,7 @@ SQLAlchemy==1.4.31
 sqlparse==0.3.1
 stack-data==0.1.4
 streamlit==1.6.0
-streamlit-cookies-manager==0.2.0
+streamlit-cookies-manager
 tabulate==0.8.9
 tenacity==8.0.1
 terminado==0.12.1

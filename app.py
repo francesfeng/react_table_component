@@ -8,6 +8,7 @@ import extra_streamlit_components as stx
 
 
 from streamlit.server.server import Server
+from streamlit.script_run_context import get_script_run_ctx
 
 
 @st.cache(allow_output_mutation=True)
@@ -57,4 +58,9 @@ st.write(cookies_dictionary)
 # streamlit server
 st.title('Streamlit Server')
 current_session = Server.get_current()
+ctx = get_script_run_ctx()
 st.write(current_session)
+st.write('ctx is: ')
+st.write(ctx)
+st.write('session_id is:', ctx.session_id)
+st.write('session_id is:', ctx.session_state)

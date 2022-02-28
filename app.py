@@ -44,8 +44,7 @@ st.write(cookies)
 
 # session_state
 st.title('Session cookies')
-a_session = requests.Session()
-a_session.get('https://share.streamlit.io/francesfeng/react_table_component/main/app.py')
+a_session = requests.get('https://share.streamlit.io/francesfeng/react_table_component/main/app.py')
 session_cookies = a_session.cookies
 cookies_dictionary = session_cookies.get_dict()
 

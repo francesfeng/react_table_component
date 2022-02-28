@@ -7,6 +7,9 @@ from react_table import selectable_data_table
 import extra_streamlit_components as stx
 
 
+from streamlit.server.server import Server
+
+
 @st.cache(allow_output_mutation=True)
 def get_manager():
     return stx.CookieManager()
@@ -44,9 +47,14 @@ st.write(cookies)
 
 # session_state
 st.title('Session cookies')
-a_session = requests.get('https://share.streamlit.io/francesfeng/react_table_component/main/app.py')
-session_cookies = a_session.cookies
+response = requests.get('https://discuss.streamlit.io/')
+session_cookies = response.cookies
 cookies_dictionary = session_cookies.get_dict()
 
-st.write(session_cookies)
+st.write(response.cookies)
 st.write(cookies_dictionary)
+
+# streamlit server
+st.title('Streamlit Server')
+current_session = Server.get_current()
+st.write(current_session)
